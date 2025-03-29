@@ -5,4 +5,4 @@
 
 enum class Types {};
 
-#endif // POKEMON_H
+#endif
