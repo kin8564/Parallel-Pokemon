@@ -7,23 +7,21 @@
 
 class Move {
     private:
-        const std::string name;
-        const Types type;
-        const int category;
+        std::string name;
+        Types type;
+        int category;
         int power, accuracy, pp;
         std::array<int, 8> statEffect; // {buff/debuff, atk, def, spa, spd, spe, acc, eva}
 
-    protected:
-        Move(const std::string& name, Types type, int cat, int pw, int acc, int points, const std::array<int, 8>& statArray);
-
     public:
-        std::string getName() const;
-        Types getType() const;
-        int getCat() const;
-        int getPow() const;
-        int getAcc() const;
-        int getPP() const;
-        std::array<int, 8> getEff() const;
+        Move (std::string name, Types type, int cat, int pw, int acc, int points, std::array<int, 8> statArray);
+        std::string getName();
+        Types getType();
+        int getCat();
+        int getPow();
+        int getAcc();
+        int getPP();
+        std::array<int, 8> getEff();
 };
 
 #endif // MOVE_H

@@ -13,8 +13,8 @@ class Pokemon {
 
         int healthPoints, attack, defense, specialAttack, specialDefense, speed, accuracy, evasion;
 
-        Types* type1;
-        Types* type2;
+        Types type1;
+        Types type2;
 
         std::array<Move*, 4> moves;
 
@@ -22,16 +22,14 @@ class Pokemon {
 
         std::array<double, 2> statAcc, statEva;
 
-    protected:
-        Pokemon(std::string monster, int hp, int atk, int def, int spa, int spd, int spe, Types* typeA, Types* typeB)
-            : name(monster), healthPoints(hp), attack(atk), defense(def), specialAttack(spa), specialDefense(spd), speed(spe),
-            type1(typeA), type2(typeB), accuracy(0), evasion(0),
-            statAtk{0, attack}, statDef{0, defense}, statSpa{0, specialAttack}, statSpd{0, specialDefense}, statSpe{0, speed},
-            statAcc{0, 1.0}, statEva{0, 1.0} {
-            moves.fill(nullptr);
-        }
-
     public:
+
+        Pokemon(std::string monster, int hp, int atk, int def, int spa, int spd, int spe, Types typeA, Types typeB)
+        : name(monster), healthPoints(hp), attack(atk), defense(def), specialAttack(spa), specialDefense(spd), speed(spe),
+        type1(typeA), type2(typeB), accuracy(0), evasion(0),
+        statAtk{0, attack}, statDef{0, defense}, statSpa{0, specialAttack}, statSpd{0, specialDefense}, statSpe{0, speed},
+        statAcc{0, 1.0}, statEva{0, 1.0} {moves.fill(nullptr);}
+
         std::string getName() {
             return name;
         }
@@ -146,6 +144,98 @@ class Pokemon {
                 statSpe[0] = 6;
             } else if (statSpe[0] < -6) {
                 statSpe[0] = -6;
+            }
+        }
+
+        Types getTypeA(){
+            return type1;
+        }
+
+        Types getTypeB(){
+            return type2;
+        }
+
+        Move* getMove1(){
+            return moves[0];
+        }
+        
+        Move* getMove2(){
+            return moves[1];
+        }
+
+        Move* getMove3(){
+            return moves[2];
+        }
+
+        Move* getMove4(){
+            return moves[3];
+        }
+
+        Move* getMove(int x){
+            return moves[x];
+        }
+
+        int getMovesNum(){
+            return moves.size();
+        }
+
+        void setMoves1(Move* move){
+            moves[0] = move;
+        }
+
+        void setMoves2(Move* move){
+            moves[1] = move;
+        }
+
+        void setMoves3(Move* move){
+            moves[2] = move;
+        }
+
+        void setMoves4(Move* move){
+            moves[3] = move;
+        }
+
+        int getAcc(){
+            return accuracy;
+        }
+
+        double getAccStage(){
+            return statAcc[0];
+        }
+
+        void setAcc(int x) {
+            accuracy = x;
+        }
+
+        void incAcc(int x){
+            if (accuracy < 6){
+                accuracy += x;
+            }
+        }
+
+        void decAcc(int x){
+            if (accuracy > -6){
+                accuracy -= x;
+            }
+        }
+
+        int getEva() {
+            return evasion;
+        }
+    
+        void setEva(int x) {
+            evasion = x;
+        }
+    
+        void incEva(int x) {
+            if (evasion < 6) {
+                evasion += x;
+            }
+        }
+    
+        void decEva(int x) {
+            if (evasion > 6) {
+                evasion -= x;
             }
         }
 };
