@@ -23,7 +23,6 @@ class Pokemon {
         std::array<double, 2> statAcc, statEva;
 
     public:
-
         Pokemon(std::string monster, int hp, int atk, int def, int spa, int spd, int spe, Types typeA, Types typeB)
         : name(monster), healthPoints(hp), attack(atk), defense(def), specialAttack(spa), specialDefense(spd), speed(spe),
         type1(typeA), type2(typeB), accuracy(0), evasion(0),
@@ -179,19 +178,19 @@ class Pokemon {
             return moves.size();
         }
 
-        void setMoves1(Move* move){
+        void setMove1(Move* move){
             moves[0] = move;
         }
 
-        void setMoves2(Move* move){
+        void setMove2(Move* move){
             moves[1] = move;
         }
 
-        void setMoves3(Move* move){
+        void setMove3(Move* move){
             moves[2] = move;
         }
 
-        void setMoves4(Move* move){
+        void setMove4(Move* move){
             moves[3] = move;
         }
 

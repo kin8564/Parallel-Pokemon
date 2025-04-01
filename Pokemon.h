@@ -25,10 +25,8 @@ private:
 
     std::array<double, 2> statAcc, statEva;
 
-protected:
-    Pokemon(std::string monster, int hp, int atk, int def, int spa, int spd, int spe, Types* typeA, Types* typeB);
-
 public:
+    Pokemon(std::string monster, int hp, int atk, int def, int spa, int spd, int spe, Types typeA, Types typeB);
     std::string getName();
     int getHP();
     int getAtk();

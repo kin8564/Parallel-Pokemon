@@ -8,7 +8,7 @@
 
 class AttackDex{
     public:
-        std::unordered_map<std::string, Move> attackdex;
+        std::unordered_map<std::string, Move*> attackdex;
 
         void populate();
 
