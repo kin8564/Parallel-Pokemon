@@ -16,8 +16,8 @@ private:
 
     int healthPoints, attack, defense, specialAttack, specialDefense, speed, accuracy, evasion;
 
-    Types type1;
-    Types type2;
+    TYPES type1;
+    TYPES type2;
 
     std::array<Move*, 4> moves;
 
@@ -26,7 +26,7 @@ private:
     std::array<double, 2> statAcc, statEva;
 
 public:
-    Pokemon(std::string monster, int hp, int atk, int def, int spa, int spd, int spe, Types typeA, Types typeB);
+    Pokemon(std::string monster, int hp, int atk, int def, int spa, int spd, int spe, TYPES typeA, TYPES typeB);
     std::string getName();
     int getHP();
     int getAtk();
@@ -39,8 +39,8 @@ public:
     int getSpdStage();
     int getSpe();
     int getSpeStage();
-    Types getTypeA();
-    Types getTypeB();
+    TYPES getTypeA();
+    TYPES getTypeB();
     Move getMove1();
     Move getMove2();
     Move getMove3();
