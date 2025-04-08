@@ -713,15 +713,16 @@ Pokemon* battle(Pokemon* friend_pokemon, Pokemon* foe) {
 
     // Until KO
     while (friend_pokemon->getHP() >= 1 && foe->getHP() >= 1) {
+        Move* selected;
         if (friend_pokemon->getSpe() > foe->getSpe()) {
             // Friend attacks first
-            Move selected = friend_pokemon->getMove(rng() % friend_pokemon->getMovesNum());
-            std::cout << friend_pokemon->getName() << " uses " << selected.getName() << "!" << std::endl;
+            selected = friend_pokemon->getMove(rng() % friend_pokemon->getMovesNum());
+            std::cout << friend_pokemon->getName() << " uses " << selected->getName() << "!" << std::endl;
 
-            if (selected.getCat() == 3) {
-                statusCalc(friend_pokemon, foe, &selected);
+            if (selected->getCat() == 3) {
+                statusCalc(friend_pokemon, foe, selected);
             } else {
-                damageCalc(friend_pokemon, foe, &selected);
+                damageCalc(friend_pokemon, foe, selected);
             }
 
             // Pause after every attack
@@ -730,13 +731,13 @@ Pokemon* battle(Pokemon* friend_pokemon, Pokemon* foe) {
             if (foe->getHP() < 1) break;
 
             // Foe attacks
-            Move selected = foe->getMove(rng() % foe->getMovesNum());
-            std::cout << foe->getName() << " uses " << selected.getName() << "!" << std::endl;
+            selected = foe->getMove(rng() % foe->getMovesNum());
+            std::cout << foe->getName() << " uses " << selected->getName() << "!" << std::endl;
 
-            if (selected.getCat() == 3) {
-                statusCalc(foe, friend_pokemon, &selected);
+            if (selected->getCat() == 3) {
+                statusCalc(foe, friend_pokemon, selected);
             } else {
-                damageCalc(foe, friend_pokemon, &selected);
+                damageCalc(foe, friend_pokemon, selected);
             }
 
             // Pause after every attack
@@ -744,13 +745,13 @@ Pokemon* battle(Pokemon* friend_pokemon, Pokemon* foe) {
 
         } else {
             // Foe attacks first
-            Move selected = foe->getMove(rng() % foe->getMovesNum());
-            std::cout << foe->getName() << " uses " << selected.getName() << "!" << std::endl;
+            selected = foe->getMove(rng() % foe->getMovesNum());
+            std::cout << foe->getName() << " uses " << selected->getName() << "!" << std::endl;
 
-            if (selected.getCat() == 3) {
-                statusCalc(foe, friend_pokemon, &selected);
+            if (selected->getCat() == 3) {
+                statusCalc(foe, friend_pokemon, selected);
             } else {
-                damageCalc(foe, friend_pokemon, &selected);
+                damageCalc(foe, friend_pokemon, selected);
             }
 
             // Pause after every attack
@@ -759,13 +760,13 @@ Pokemon* battle(Pokemon* friend_pokemon, Pokemon* foe) {
             if (friend_pokemon->getHP() < 1) break;
 
             // Friend attacks
-            Move selected = friend_pokemon->getMove(rng() % friend_pokemon->getMovesNum());
-            std::cout << friend_pokemon->getName() << " uses " << selected.getName() << "!" << std::endl;
+            selected = friend_pokemon->getMove(rng() % friend_pokemon->getMovesNum());
+            std::cout << friend_pokemon->getName() << " uses " << selected->getName() << "!" << std::endl;
 
-            if (selected.getCat() == 3) {
-                statusCalc(friend_pokemon, foe, &selected);
+            if (selected->getCat() == 3) {
+                statusCalc(friend_pokemon, foe, selected);
             } else {
-                damageCalc(friend_pokemon, foe, &selected);
+                damageCalc(friend_pokemon, foe, selected);
             }
 
             // Pause after every attack

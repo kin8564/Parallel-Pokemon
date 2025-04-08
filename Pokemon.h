@@ -41,11 +41,11 @@ public:
     int getSpeStage();
     TYPES getTypeA();
     TYPES getTypeB();
-    Move getMove1();
-    Move getMove2();
-    Move getMove3();
-    Move getMove4();
-    Move getMove(int x);
+    Move* getMove1();
+    Move* getMove2();
+    Move* getMove3();
+    Move* getMove4();
+    Move* getMove(int x);
     int getMovesNum();
     int getAcc();
     int getAccStage();

@@ -14,7 +14,7 @@ class Move {
         std::array<int, 8> statEffect; // {buff/debuff, atk, def, spa, spd, spe, acc, eva}
 
     public:
-        Move (std::string name, TYPES type, int cat, int pw, int acc, int points, std::array<int, 8> statArray);
+        Move(std::string name, TYPES type, int cat, int pw, int acc, int points, std::array<int, 8> statArray);
         std::string getName();
         TYPES getType();
         int getCat();
