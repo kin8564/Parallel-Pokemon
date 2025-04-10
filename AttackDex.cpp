@@ -3,10 +3,11 @@
 #include <string>
 #include "Move.h"
 #include "Types.h"
+#include "AttackDex.h"
 
 std::unordered_map<std::string, Move*> attackdex;
 
-void populate(){
+void AttackDex::populate(){
     attackdex["Tackle"] = new Move("Tackle", TYPES::NORMAL, 1, 40, 100, 35, {});
     attackdex["Scratch"] = new Move("Scratch", TYPES::NORMAL, 1, 40, 100, 35, {});
 
@@ -28,3 +29,11 @@ void populate(){
     status = {1, 0, 0, 0, 0, 0, -1, 0}; // lower target acc one stage
     attackdex["Smokescreen"] = new Move("Smokescreen", TYPES::NORMAL, 3, 0, 100, 20, status);
 }
+
+void AttackDex::cleanattack() {
+    for (auto& pair : attackdex) {
+        delete pair.second;
+    }
+    attackdex.clear();
+}
+

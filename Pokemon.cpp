@@ -4,9 +4,9 @@
 #include "Types.h"
 #include "Move.h"
 
-std::string name;
+std::string Pokename;
 
-int healthPoints, attack, defense, specialAttack, specialDefense, speed, accuracy, evasion;
+int healthPoints, attack, defense, specialAttack, specialDefense, speed, pokeacc, evasion;
 
 TYPES type1;
 TYPES type2;
@@ -18,36 +18,36 @@ std::array<int, 2> statAtk, statDef, statSpa, statSpd, statSpe;
 std::array<double, 2> statAcc, statEva;
 
 Pokemon::Pokemon(std::string monster, int hp, int atk, int def, int spa, int spd, int spe, TYPES typeA, TYPES typeB)
-: name(monster), healthPoints(hp), attack(atk), defense(def), specialAttack(spa), specialDefense(spd), speed(spe),
-type1(typeA), type2(typeB), accuracy(0), evasion(0),
+: Pokename(monster), healthPoints(hp), attack(atk), defense(def), specialAttack(spa), specialDefense(spd), speed(spe),
+type1(typeA), type2(typeB), pokeacc(0), evasion(0),
 statAtk{0, attack}, statDef{0, defense}, statSpa{0, specialAttack}, statSpd{0, specialDefense}, statSpe{0, speed},
 statAcc{0, 1.0}, statEva{0, 1.0} {moves.fill(nullptr);}
 
-std::string getName() {
-    return name;
+std::string Pokemon::getPokeName() {
+    return Pokename;
 }
 
-int getHP() {
+int Pokemon::getHP() {
     return healthPoints;
 }
 
-void setHP(int x) {
+void Pokemon::setHP(int x) {
     healthPoints = x;
 }
 
-int getAtk() {
+int Pokemon::getAtk() {
     return statAtk[1];
 }
 
-int getAtkStage() {
+int Pokemon::getAtkStage() {
     return statAtk[0];
 }
 
-void setAtk(int x) {
+void Pokemon::setAtk(int x) {
     statAtk[1] = x;
 }
 
-void setAtkStage(int x) {
+void Pokemon::setAtkStage(int x) {
     statAtk[0] += x;
     if (statAtk[0] > 6) {
         statAtk[0] = 6;
@@ -56,19 +56,19 @@ void setAtkStage(int x) {
     }
 }
 
-int getDef() {
+int Pokemon::getDef() {
     return statDef[1];
 }
 
-int getDefStage() {
+int Pokemon::getDefStage() {
     return statDef[0];
 }
 
-void setDef(int x) {
+void Pokemon::setDef(int x) {
     statDef[1] = x;
 }
 
-void setDefStage(int x) {
+void Pokemon::setDefStage(int x) {
     statDef[0] += x;
     if (statDef[0] > 6) {
         statDef[0] = 6;
@@ -77,19 +77,19 @@ void setDefStage(int x) {
     }
 }
 
-int getSpa() {
+int Pokemon::getSpa() {
     return statSpa[1];
 }
 
-int getSpaStage() {
+int Pokemon::getSpaStage() {
     return statSpa[0];
 }
 
-void setSpa(int x) {
+void Pokemon::setSpa(int x) {
     statSpa[1] = x;
 }
 
-void setSpaStage(int x) {
+void Pokemon::setSpaStage(int x) {
     statSpa[0] += x;
     if (statSpa[0] > 6) {
         statSpa[0] = 6;
@@ -98,19 +98,19 @@ void setSpaStage(int x) {
     }
 }
 
-int getSpd() {
+int Pokemon::getSpd() {
     return statSpd[1];
 }
 
-int getSpdStage() {
+int Pokemon::getSpdStage() {
     return statSpd[0];
 }
 
-void setSpd(int x) {
+void Pokemon::setSpd(int x) {
     statSpd[1] = x;
 }
 
-void setSpdStage(int x) {
+void Pokemon::setSpdStage(int x) {
     statSpd[0] += x;
     if (statSpd[0] > 6) {
         statSpd[0] = 6;
@@ -119,19 +119,19 @@ void setSpdStage(int x) {
     }
 }
 
-int getSpe() {
+int Pokemon::getSpe() {
     return statSpe[1];
 }
 
-int getSpeStage() {
+int Pokemon::getSpeStage() {
     return statSpe[0];
 }
 
-void setSpe(int x) {
+void Pokemon::setSpe(int x) {
     statSpe[1] = x;
 }
 
-void setSpeStage(int x) {
+void Pokemon::setSpeStage(int x) {
     statSpe[0] += x;
     if (statSpe[0] > 6) {
         statSpe[0] = 6;
@@ -140,93 +140,93 @@ void setSpeStage(int x) {
     }
 }
 
-TYPES getTypeA(){
+TYPES Pokemon::getTypeA(){
     return type1;
 }
 
-TYPES getTypeB(){
+TYPES Pokemon::getTypeB(){
     return type2;
 }
 
-Move* getMove1(){
+Move* Pokemon::getMove1(){
     return moves[0];
 }
 
-Move* getMove2(){
+Move* Pokemon::getMove2(){
     return moves[1];
 }
 
-Move* getMove3(){
+Move* Pokemon::getMove3(){
     return moves[2];
 }
 
-Move* getMove4(){
+Move* Pokemon::getMove4(){
     return moves[3];
 }
 
-Move* getMove(int x){
+Move* Pokemon::getMove(int x){
     return moves[x];
 }
 
-int getMovesNum(){
+int Pokemon::getMovesNum(){
     return moves.size();
 }
 
-void setMove1(Move* move){
+void Pokemon::setMove1(Move* move){
     moves[0] = move;
 }
 
-void setMove2(Move* move){
+void Pokemon::setMove2(Move* move){
     moves[1] = move;
 }
 
-void setMove3(Move* move){
+void Pokemon::setMove3(Move* move){
     moves[2] = move;
 }
 
-void setMove4(Move* move){
+void Pokemon::setMove4(Move* move){
     moves[3] = move;
 }
 
-int getAcc(){
-    return accuracy;
+int Pokemon::getPokeAcc(){
+    return pokeacc;
 }
 
-double getAccStage(){
+double Pokemon::getPokeAccStage(){
     return statAcc[0];
 }
 
-void setAcc(int x) {
-    accuracy = x;
+void Pokemon::setAcc(int x) {
+    pokeacc = x;
 }
 
-void incAcc(int x){
-    if (accuracy < 6){
-        accuracy += x;
+void Pokemon::incAcc(int x){
+    if (pokeacc < 6){
+        pokeacc += x;
     }
 }
 
-void decAcc(int x){
-    if (accuracy > -6){
-        accuracy -= x;
+void Pokemon::decAcc(int x){
+    if (pokeacc > -6){
+        pokeacc -= x;
     }
 }
 
-int getEva() {
+int Pokemon::getEva() {
     return evasion;
 }
 
-void setEva(int x) {
+void Pokemon::setEva(int x) {
     evasion = x;
 }
 
-void incEva(int x) {
+void Pokemon::incEva(int x) {
     if (evasion < 6) {
         evasion += x;
     }
 }
 
-void decEva(int x) {
+void Pokemon::decEva(int x) {
     if (evasion > 6) {
         evasion -= x;
     }

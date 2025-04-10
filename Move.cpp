@@ -1,6 +1,6 @@
 #include <string>
 #include <array>
-#include "types.h"
+#include "Types.h"
 #include "Move.h"
 
 std::string name;
@@ -12,30 +12,30 @@ std::array<int, 8> statEffect; // {buff/debuff, atk, def, spa, spd, spe, acc, ev
 Move::Move(std::string name, TYPES type, int cat, int pw, int acc, int points, std::array<int, 8> statArray)
         : name(name), type(type), category(cat), power(pw), accuracy(acc), pp(points), statEffect(statArray) {}
 
-std::string getName() {
+std::string Move::getName() {
     return name;
 }
 
-TYPES getType() {
+TYPES Move::getType() {
     return type;
 }
 
-int getCat() {
+int Move::getCat() {
     return category;
 }
 
-int getPow() {
+int Move::getPow() {
     return power;
 }
 
-int getAcc() {
+int Move::getAcc() {
     return accuracy;
 }
 
-int getPP() {
+int Move::getPP() {
     return pp;
 }
 
-std::array<int, 8> getEff() {
+std::array<int, 8> Move::getEff() {
     return statEffect;
 }

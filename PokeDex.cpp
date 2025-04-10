@@ -6,10 +6,11 @@
 #include "Types.h"
 #include "Pokemon.h"
 #include "AttackDex.h"
+#include "PokeDex.h"
 
 std::array<Pokemon*, 151> pokedex;
 
-void populate(){
+void PokeDex::dexpopulate(){
     static AttackDex attackDex;
     attackDex.populate();
 
@@ -31,4 +32,11 @@ void populate(){
     pokedex[7]->setMove2(attackDex.attackdex["Tail Whip"]);
     pokedex[7]->setMove3(attackDex.attackdex["Water Gun"]);
     pokedex[7]->setMove4(attackDex.attackdex["Withdraw"]);
+}
+
+void PokeDex::cleandex() {
+    for (auto& mon : pokedex) {
+        delete mon;
+        mon = nullptr;
+    }
 }
